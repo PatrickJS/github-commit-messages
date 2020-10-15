@@ -1,4 +1,4 @@
-let done = null;
+let done = false;
 
 function main() {
   const node1 = document.querySelectorAll('.js-commits-list-item')
@@ -10,11 +10,14 @@ function main() {
   let toggle = false
 
   if (hasCommits && !done) {
-    // observer.disconnect();
     node2.forEach(el => {
       const a = el.querySelector('a')
+
+      // get the full message
       // const raw = a.getAttribute('aria-label').match(/^.*$/m)[0];
+
       const textContent = a.textContent
+      // split message from scope
       const exp = /(^[a-z]*(\(.+\))?: )(.+)/
       const match = exp.exec(textContent)
       if (match) {
@@ -40,22 +43,7 @@ function main() {
 
         a.appendChild(span)
         a.appendChild(message)
-        // if (/@/.test(textContent)) {
-        //   const as = Array.from(p.querySelectorAll('a'))
-        //   const lastIndex = as.length - 1;
-        //   as[lastIndex].textContent = as[lastIndex].textContent + ' | ' + scope.trim()
-        //   as[0].textContent.replace(scope, '')
-        // } else {
-        // a.textContent = msg; // + ' | ' + scope.trim()
-        // a.innerHTML = `<span>${ scope.trim() }</span>${ msg }`;
-        // }
       }
-      // if (textContent) {
-      // }
-      // const exp = /(^.+(\(.+\))?:).+ .+/
-      // if (exp.test(textContent)) {
-
-      // }
     });
 
     done = true;
@@ -79,33 +67,3 @@ function main() {
   }
 }
 document.addEventListener('DOMContentLoaded', main);
-
-// const observer = new MutationObserver(mutations => {
-//   mutations.forEach(mutation => {
-//     if (mutation.addedNodes && (mutation.addedNodes.length > 0)) {
-//       const node1 = mutation.target.querySelectorAll('.js-commits-list-item')
-//       const node2 = Array.from(node1);
-
-//       if (node2 && node2.length && !done) {
-//         observer.disconnect();
-//         node2.forEach(el => {
-//           debugger
-//           const a = el.querySelector('a')
-//           const textContent = a.textContent
-//           a.textContent = 'PatrickJS: ' + textContent
-//         });
-
-//         done = true;
-//       }
-//       // if (done) {
-//       //   observer.disconnect();
-//       // }
-
-//     }
-//   });
-// });
-
-// observer.observe(document, {
-//   childList: true,
-//   subtree: true
-// });
