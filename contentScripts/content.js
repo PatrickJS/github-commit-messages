@@ -17,8 +17,10 @@ function main() {
       // const raw = a.getAttribute('aria-label').match(/^.*$/m)[0];
 
       const textContent = a.textContent
-      // split message from scope
+      // split message from scope 
+      // regexr.com/5e60u
       const exp = /(^[a-z]*(\(.+\))?: )(.+)/
+
       const match = exp.exec(textContent)
       if (match) {
         hasScope = true;
