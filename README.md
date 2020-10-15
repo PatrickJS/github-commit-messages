@@ -2,6 +2,12 @@
 
 This extension will show and hide scoped messages so its easier to read quickly
 
+## Why
+Created in response to this tweet about  
+"Knowing the 'category' of a change is useless. It provides no value"  
+https://twitter.com/anaisbetts/status/1316333390166200321?s=20   
+The scope of the message is great for generating changelogs but its not that great for quickly scaning commit messages
+
 ## How to install
 1. Download this repository
 2. go to chrome://extensions (same for Brave Browser)
