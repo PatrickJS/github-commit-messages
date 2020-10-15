@@ -1,0 +1,21 @@
+{
+  "name": "Github Commit Messages",
+  "version": "1.0.0.0",
+  "description": "Removes the scope from commit messages so its easier to read quickly",
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "js": ["contentScripts/content.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "matches": [
+        "https://github.com/*commits*"
+      ]
+    }
+  ],
+  "icons": {
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  }
+}
